@@ -1,2 +1,8 @@
-Django>=3.2.4,<3.3
-djangorestframework>=3.12.4,<3.13
+asgiref==3.5.2
+backports.zoneinfo;python_version<"3.9"
+calc==1.0
+Django==4.1
+djangorestframework==3.13.1
+psycopg2==2.9.3
+pytz==2022.2.1
+sqlparse==0.4.2
