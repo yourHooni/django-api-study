@@ -19,7 +19,7 @@ RUN pip install --upgrade pip && \
         then pip install -r /tmp/requirements.dev.txt ; \
     fi && \
     rm -rf /tmp && \
-    apk del .tmp-build-deps && \
+    apk del .tmp-build-dev && \
     adduser --disabled-password --no-create-home django-user
 
 ENV PATH="/py/bin:$PATH"
