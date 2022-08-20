@@ -1,4 +1,4 @@
-from rest_framework import viewsets
+from rest_framework import viewsets, generics
 from rest_framework.response import Response
 
 from user.serializers import UserSerializer
@@ -19,3 +19,8 @@ class UserViewSet(viewsets.ModelViewSet):
 
     def create(self, request, *args, **kwargs):
         pass
+
+
+class CreateUserView(generics.CreateAPIView):
+    """Create a new user in th system."""
+    serializer_class = UserSerializer
