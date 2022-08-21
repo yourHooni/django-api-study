@@ -8,9 +8,11 @@ from django.contrib.auth.models import (
     PermissionsMixin
 )
 
-## 인증 관련
+
+# 인증 관련
 # django.contrib.auth: 장고에서 제공하는 인증시스템
 # rest_framework.authtoken: TokenAuthentication(토큰 기반 인증)
+
 
 class UserManager(BaseUserManager):
     """Manager for users(include superuser)."""
