@@ -19,9 +19,6 @@ class UserViewSet(viewsets.ModelViewSet):
         serializer = UserSerializer(queryset, many=True)
         return Response(serializer.data)
 
-    def create(self, request, *args, **kwargs):
-        pass
-
 
 class CreateUserView(generics.CreateAPIView):
     """Create a new user in th system."""
@@ -32,3 +29,18 @@ class CreateTokenView(ObtainAuthToken):
     """Create a new auth token for user."""
     serializer_class = AuthTokenSerializer
     # renderer_classes = api_settings.DEFAULT_RENDERER_CLASSES
+
+
+class ManageUserView(generics.RetrieveUpdateAPIView):
+    """Manage the authenticated user."""
+    serializer_class = UserSerializer
+    # cookie, Token 등
+    authentication_classes = (authentication.TokenAuthentication, )
+    # 등록된 유저만 접근가능 하도록 permission 체크
+    permission_classes = (permissions.IsAuthenticated, )
+
+    # retrieve and return authenticated user
+    # this method is also required for update (patch)
+    def get_object(self):
+        """Retrieve and return authentication user."""
+        return self.request.user
