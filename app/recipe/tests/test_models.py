@@ -30,7 +30,7 @@ class IngredientTests(TestCase):
         """Test the ingredient string representation."""
         ingredient = models.Ingredient.objects.create(
             user=sample_user(),
-            name='protein'
+            name='Onion'
         )
 
         self.assertEqual(str(ingredient), ingredient.name)
